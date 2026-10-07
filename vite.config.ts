@@ -12,4 +12,6 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // On Vercel, pin the Vercel output format (.vercel/output). Lovable builds are unaffected.
+  ...(process.env["VERCEL"] ? { nitro: { preset: "vercel" } } : {}),
 });
